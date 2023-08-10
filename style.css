@@ -1,0 +1,380 @@
+/* * is all element */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins";
+}
+
+/*
+box-sizing: border-box is to calulate the border, padding with the parent element.
+parent (display: flex) set the all div to one line and must follow the flex property.
+*/
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+/*
+align-items: center is to vertical align center to  all element in display:flex div
+*/
+
+nav {
+  flex: 1;
+  text-align: right;
+}
+/*
+If an element has flex: 1, it signifies that the width of all other elements will be the same as their content,
+but the element with flex: 1 will be given the remaining full space.
+*/
+
+nav ul {
+  display: inline-block;
+  list-style-type: none;
+}
+/*
+display: inline is 
+    -take only the content width and height
+    -not effect property width and height to element
+    -padding and margin will OVERLAP other element
+             
+display: block 
+    -take the whole row space and 
+    -other element will be line break
+    -AFFECT property width and height to element
+    -padding and margin will NOT OVERLAP other element
+display: inline-block 
+    -DOES NOT take the whole row space 
+    -NOT line break 
+    -AFFECT property width and height to element
+    -NOT OVERLAP to other element
+*/
+nav ul li {
+  display: inline-block;
+  margin-right: 25px;
+}
+a {
+  text-decoration: none;
+  color: #555;
+}
+p {
+  color: #555;
+}
+/*
+browser width is 1467px
+*/
+.container {
+  max-width: 1300px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+/*
+parent(flex-wrap: wrap) make all elements(children) must be within parent
+parent(flex-wrap: nowrap) make all div(children) in one line
+parent(justify-content: space-around;) make all div(children) to align center
+*/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.col-2 {
+  flex-basis: 50%;
+  /* min-width: 300px; */
+}
+/*
+In flex-basis,img max-width: 100%; will take the full width according to flex.not image width
+*/
+.col-2 img {
+  max-width: 100%;
+  padding: 20px 0;
+}
+
+.col-2 h1 {
+  margin: 25px 0;
+  line-height: 60px;
+  font-size: 50px;
+}
+
+.btn {
+  display: inline-block;
+  background: orange;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 20px;
+  margin: 30px 0;
+  transition: background 0.5s;
+}
+/*
+  transition: background 0.5s; will work transition affect if lightgray hover changed.
+*/
+.btn:hover {
+  background: lightgray;
+}
+
+/*
+background property only can apply radial-gradient(color,color)
+*/
+.header {
+  background: radial-gradient(#fff, #ffd6d6);
+}
+
+/* 
+margin-top: 70px; is to take the header the whole screen
+ */
+.header .row {
+  margin-top: 70px;
+}
+
+.categories {
+  margin: 50px 0;
+}
+
+.col-3 {
+  flex-basis: 30%;
+  min-width: 250px;
+}
+/*
+In flex child, width: 100%; img will be adjusted by the width and height of flex div(col-3)
+*/
+.col-3 img {
+  width: 100%;
+}
+/*
+transition: transform 0.5s; will work if transform: translateY(-5px) worked.
+*/
+.col-4 {
+  flex-basis: 25%;
+  padding: 10px;
+  min-width: 200px;
+  margin-bottom: 50px;
+  transition: transform 0.5s;
+}
+
+.col-4:hover {
+  transform: translateY(-5px);
+}
+
+.col-4 img {
+  width: 100%;
+}
+
+/*
+margin:auto; to align all item in center
+*/
+.small-container {
+  max-width: 1080px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+/*
+margin: (top) (left, right) (bottom)
+withoud position: relative; his ::after position:absolute; does not effect.
+*/
+.title {
+  margin: 0 auto 50px;
+  position: relative;
+  text-align: center;
+  line-height: 60px;
+  color: #555;
+}
+/*
+transform: translateX(-50%); make the center. left:50% does not make the fully center.
+*/
+.title::after {
+  content: "";
+  background: orange;
+  width: 80px;
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  border-radius: 5px;
+  transform: translateX(-50%);
+}
+
+.col-4 h2 {
+  color: #555;
+  font-weight: normal;
+}
+
+.col-4 p {
+  font-size: 14px;
+}
+
+.rating .fa {
+  color: #ff523b;
+}
+
+/* offer */
+.offer {
+  background: radial-gradient(#fff, #ffd6d6);
+  padding: 30px 0px;
+  margin-top: 80px;
+}
+/*
+padding: 50px is to reduce the image size
+*/
+.col-2 .offer-image {
+  padding: 50px;
+}
+
+/* testimonial */
+.testimonial {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.testimonial .col-3 {
+  text-align: center;
+  padding: 40px 20px;
+  box-shadow: 0 20px 20px 0 lightgray;
+  transition: transform 0.5s;
+}
+
+.testimonial .col-3:hover {
+  transform: translateY(-10px);
+}
+
+.fa-quote-left {
+  font-size: 34px;
+  color: #ff523b;
+}
+
+.col-3 p {
+  font-size: 12px;
+}
+
+.testimonial .col-3 h2 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.testimonial .col-3 img {
+  border-radius: 50%;
+  width: 50px;
+  padding: 10px 0;
+}
+
+.brand {
+  margin: 100px auto;
+}
+
+.col-5 {
+  width: 160px;
+}
+
+.col-5 img {
+  cursor: pointer;
+  width: 100%;
+  filter: grayscale(100%);
+}
+
+.col-5 img:hover {
+  filter: grayscale(0);
+}
+
+/* footer */
+.footer {
+  background: #000;
+  color: #8a8a8a;
+  padding: 60px 0 20px;
+}
+
+.footer p {
+  color: #8a8a8a;
+}
+
+.footer h3 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer-col-1,
+.footer-col-2,
+.footer-col-3,
+.footer-col-4 {
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-col-1 {
+  flex-basis: 30%;
+}
+
+.footer-col-2 {
+  flex: 1;
+  text-align: center;
+}
+
+.footer-col-2 img {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+.footer-col-3,
+.footer-col-4 {
+  flex-basis: 10%;
+  text-align: center;
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.app-logo {
+  margin-top: 20px;
+}
+
+.app-logo img {
+  width: 150px;
+}
+
+.footer hr {
+  border: none;
+  background: red;
+  height: 1px;
+  margin: 20px 0;
+}
+.copy-right {
+  text-align: center;
+}
+
+.menu-icon {
+  margin-left: 20px;
+  display: none;
+}
+
+/* media query */
+@media only screen and (max-width: 800px) {
+  nav ul {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #333;
+    overflow: hidden;
+    opacity: 0.5;
+    transition: max-height 0.5s;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 10px 50px 10px 0px;
+  }
+  nav ul li a {
+    color: #fff;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}
